@@ -3,21 +3,23 @@ $logtime =  Get-Date -Format "HH:mm"
 
 $URL = 'https://api.msrc.microsoft.com/report/v2.0/abuse'
 
-$ip = Read-Host -Prompt "Please enter an IP address: "
+$phishURL = Read-Host -Prompt "Please enter a URL: "
 
 $Body = @{
+  anonymizeReport = "true"
   date = $logdate
   time = $logtime
   timeZone = "-0000" 
-  reporterEmail = "ENTER YOUR EMAIL" 
-  reporterName = "ENTER YOUR NAME" 
-  reportNotes = "PHSHING/SCAMMERS Detected" 
-  threatType = "IP Address" 
+  reporterEmail = "EMAIL" 
+  reporterName = "NAME" 
+  reportNotes = "PHISHING/SCAMMERS Detected" 
+  threatType = "URL" 
   incidentType = "Phishing" 
-  sourceIp = $ip.tostring()
+  sourceUrl = $phishURL
   destinationPort = "443"
   
 }
+
 
 $Body = ConvertTo-Json $Body
 
