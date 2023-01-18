@@ -4,6 +4,7 @@
 
 $abuseip = Get-Content -Path .\abuse_ip.txt
 
+# this needs updating for the new schema
 
 foreach($ip in $abuseip){
 
